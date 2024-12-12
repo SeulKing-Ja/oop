@@ -71,6 +71,9 @@ class Guild():
     def permission_manage(self):
         pass
     
+    def delete_guild(self):
+        pass
+
 #----- Player
 player1 = Player('Hero_01', 1, 100)
 player2 = Player('Archer_01', 2, 120)
