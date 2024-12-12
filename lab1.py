@@ -1,0 +1,103 @@
+class Player:
+    def __init__(self, name, level, hp):
+        self.name = name
+        self.level = level
+        self.hp = hp
+        self.weapon_owner = []
+        self.armor_owner = []
+        self.guild_member = []
+        
+    def info(self):
+        print(f'Name: {self.name}') 
+        print(f'Level: {self.level}')
+        print(f'Hp: {self.hp}')
+        print(f'Weapon: {self.weapon_owner[0]}')
+        print(f'Armor: {self.armor_owner[0]}')
+        print(f'Guild: {self.guild_member[0]} Position: {self.guild_member[1]}')
+        
+        print(f'------------------------------')
+         
+    def move(self):
+        pass
+    
+    def punch(self):
+        pass
+    
+    def hp_regen(self):
+        pass
+    
+    def mana_regen(self):
+        pass
+class Weapon:
+    def __init__(self, name, type, damage):
+        self.name = name
+        self.type = type
+        self.dmg = damage
+    
+    def attack(self):
+        pass
+
+    def skill(self):
+        pass
+class Armor:
+    def __init__(self, name, defend):
+        self.name = name
+        self.defend = defend
+    
+    def endurance(self):
+        pass
+class Guild():
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+
+    def create_guild(self):
+        pass
+    
+    def join_guild(self):
+        pass
+    
+    def permision_manage(self):
+        pass
+    
+#----- Player
+player1 = Player('Hero_01', 1, 100)
+player2 = Player('Archer_01', 2, 120)
+player3 = Player('Wizard_01', 50, 1100)
+
+#----- Weapon
+weapon1 = Weapon('Iron Sword', 'Melee', 10)
+weapon2 = Weapon('Wooden Bow', 'Range', 8)
+weapon3 = Weapon('Staff', 'Magic', 12)
+
+player1.weapon_owner.append(weapon1.name + ' (Damage: '+ str(weapon1.dmg) + ')')
+player2.weapon_owner.append(weapon2.name + ' (Damage: '+ str(weapon2.dmg) + ')')
+player3.weapon_owner.append(weapon3.name + ' (Damage: '+ str(weapon3.dmg) + ')')
+
+#----- Armor  
+armor1 = Armor('Lether Armor', 5)
+armor2 = Armor('Chain Mail', 10)
+armor3 = Armor('Hood', 2)
+
+player1.armor_owner.append(armor1.name+ ' (Defend: ' + str(armor1.defend) + ')')  
+player2.armor_owner.append(armor2.name+ ' (Defend: ' + str(armor2.defend) + ')')  
+player3.armor_owner.append(armor3.name+ ' (Defend: ' + str(armor3.defend) + ')')  
+
+#----- Guild
+guild1 = Guild('Newbie Eiei', 'Member')
+guild2 = Guild('Advance Eiei', 'Member')
+
+player1.guild_member.append(guild1.name)
+player1.guild_member.append(guild1.position)
+player2.guild_member.append(guild1.name)
+player2.guild_member.append(guild1.position)
+player3.guild_member.append(guild2.name)
+player3.guild_member.append(guild2.position)
+
+player2.guild_member[1] = 'Leader'
+player3.guild_member[1] = 'Leader'
+
+#----- Test
+player1.info()
+player2.info()
+player3.info()
