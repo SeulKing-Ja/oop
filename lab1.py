@@ -8,18 +8,14 @@ class Player:
         self.guild_member = []
         
     def info(self):
-        print(f'Name: {self.name}') 
-        print(f'Level: {self.level}')
-        print(f'Hp: {self.hp}')
-        print(f'Weapon: {self.weapon_owner[0]} Damage: {self.weapon_owner[1]}')
-        print(f'Armor: {self.armor_owner[0]} Defend: {self.armor_owner[1]}')
-        print(f'Guild: {self.guild_member[0]} Position: {self.guild_member[1]}')
-        
-        print(f'------------------------------')
+        print(f'Name: {self.name} \nLevel: {self.level} \nHp: {self.hp} \nWeapon: {self.weapon_owner[0]} \nDamage: {self.weapon_owner[1]}\nArmor: {self.armor_owner[0]} Defend: {self.armor_owner[1]}\nGuild: {self.guild_member[0]} Position: {self.guild_member[1]} \n ------------------------------')
          
-    def move(self):
+    def walk(self):
         pass
     
+    def sprint(self):
+        pass
+
     def punch(self):
         pass
     
@@ -28,6 +24,10 @@ class Player:
     
     def mana_regen(self):
         pass
+    
+    def level_up(self):
+        pass
+    
 class Weapon:
     def __init__(self, name, type, damage):
         self.name = name
@@ -37,8 +37,15 @@ class Weapon:
     def attack(self):
         pass
 
+    def attack_range(self):
+        pass
+
     def skill(self):
         pass
+    
+    def skill_slots(self):
+        pass
+
 class Armor:
     def __init__(self, name, defend):
         self.name = name
@@ -46,6 +53,10 @@ class Armor:
     
     def endurance(self):
         pass
+    
+    def element_def(self):
+        pass
+    
 class Guild():
     def __init__(self, name, position):
         self.name = name
@@ -57,7 +68,7 @@ class Guild():
     def join_guild(self):
         pass
     
-    def permision_manage(self):
+    def permission_manage(self):
         pass
     
 #----- Player
