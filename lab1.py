@@ -11,8 +11,8 @@ class Player:
         print(f'Name: {self.name}') 
         print(f'Level: {self.level}')
         print(f'Hp: {self.hp}')
-        print(f'Weapon: {self.weapon_owner[0]}')
-        print(f'Armor: {self.armor_owner[0]}')
+        print(f'Weapon: {self.weapon_owner[0]} Damage: {self.weapon_owner[1]}')
+        print(f'Armor: {self.armor_owner[0]} Defend: {self.armor_owner[1]}')
         print(f'Guild: {self.guild_member[0]} Position: {self.guild_member[1]}')
         
         print(f'------------------------------')
@@ -70,18 +70,24 @@ weapon1 = Weapon('Iron Sword', 'Melee', 10)
 weapon2 = Weapon('Wooden Bow', 'Range', 8)
 weapon3 = Weapon('Staff', 'Magic', 12)
 
-player1.weapon_owner.append(weapon1.name + ' (Damage: '+ str(weapon1.dmg) + ')')
-player2.weapon_owner.append(weapon2.name + ' (Damage: '+ str(weapon2.dmg) + ')')
-player3.weapon_owner.append(weapon3.name + ' (Damage: '+ str(weapon3.dmg) + ')')
+player1.weapon_owner.append(weapon1.name)
+player1.weapon_owner.append(weapon1.dmg)
+player2.weapon_owner.append(weapon2.name)
+player2.weapon_owner.append(weapon2.dmg)
+player3.weapon_owner.append(weapon3.name)
+player3.weapon_owner.append(weapon3.dmg)
 
 #----- Armor  
 armor1 = Armor('Lether Armor', 5)
 armor2 = Armor('Chain Mail', 10)
 armor3 = Armor('Hood', 2)
 
-player1.armor_owner.append(armor1.name+ ' (Defend: ' + str(armor1.defend) + ')')  
-player2.armor_owner.append(armor2.name+ ' (Defend: ' + str(armor2.defend) + ')')  
-player3.armor_owner.append(armor3.name+ ' (Defend: ' + str(armor3.defend) + ')')  
+player1.armor_owner.append(armor1.name)
+player1.armor_owner.append(armor1.defend)
+player2.armor_owner.append(armor2.name)  
+player2.armor_owner.append(armor2.defend)
+player3.armor_owner.append(armor3.name)  
+player3.armor_owner.append(armor3.defend)
 
 #----- Guild
 guild1 = Guild('Newbie Eiei', 'Member')
