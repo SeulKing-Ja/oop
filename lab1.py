@@ -1,123 +1,79 @@
 class Player:
-    def __init__(self, name, level, hp):
+    def __init__(self, name,level, hp):
         self.name = name
-        self.level = level
+        self.lvl = level
         self.hp = hp
-        self.weapon_owner = []
-        self.armor_owner = []
-        self.guild_member = []
-        
-    def info(self):
-        print(f'Name: {self.name} \nLevel: {self.level} \nHp: {self.hp} \nWeapon: {self.weapon_owner[0]} \nDamage: {self.weapon_owner[1]}\nArmor: {self.armor_owner[0]} Defend: {self.armor_owner[1]}\nGuild: {self.guild_member[0]} Position: {self.guild_member[1]} \n ------------------------------')
-         
-    def walk(self):
-        pass
+        self.weapon = []
+        self.armor = []
     
-    def sprint(self):
-        pass
-
-    def punch(self):
-        pass
+    def show_info(self):
+        print(f'Player Infomation\nName: {self.name}\nLevel: {self.lvl}\nHp: {self.hp}\nWeapon: {self.weapon[0]} Damage: {self.weapon[1]}\nArmor: {self.armor[0]} Defend: {self.armor[1]}\n----------------------------------------------------------------')
     
-    def hp_regen(self):
-        pass
+    def equip_weapon(self, Weapon):
+        self.weapon.append(Weapon.name)
+        self.weapon.append(Weapon.dmg)
     
-    def mana_regen(self):
-        pass
+    def equip_armor(self, Armor):
+        self.armor.append(Armor.name)
+        self.armor.append(Armor.defend)
     
-    def level_up(self):
-        pass
-    
-class Weapon:
-    def __init__(self, name, type, damage):
+class Guild:
+    def __init__(self, name):
         self.name = name
-        self.type = type
+        self.leader = None
+        self.member = []
+    
+    def show_guild(self):
+        res = ''
+        for i in self.member:
+            res += i.name + ', '
+        print(f'Guild Information\nName: {self.name}\nLeader: {self.leader.name}\nMember: {res[:-2]} \n-----------------------------')
+   
+    def join_guild(self, Player):
+        if self.leader == None:
+            self.leader = Player
+        else:
+            self.member.append(Player)
+        
+class Weapon:
+    def __init__(self, name, damage):
+        self.name = name
         self.dmg = damage
-    
-    def attack(self):
-        pass
-
-    def attack_range(self):
-        pass
-
-    def skill(self):
-        pass
-    
-    def skill_slots(self):
-        pass
-
+        
 class Armor:
     def __init__(self, name, defend):
         self.name = name
         self.defend = defend
-    
-    def endurance(self):
-        pass
-    
-    def element_def(self):
-        pass
-    
-class Guild():
-    def __init__(self, name, position):
-        self.name = name
-        self.position = position
+        
+#player
+player1 = Player('king', 1, 100)
+player2 = Player('tang', 10, 1000)
+player3 = Player('Khanun', 100, 10000)
 
-    def create_guild(self):
-        pass
-    
-    def join_guild(self):
-        pass
-    
-    def permission_manage(self):
-        pass
-    
-    def delete_guild(self):
-        pass
+weapon1 = Weapon('Iron Sword', 20)
+weapon2 = Weapon('Spear', 35)
+weapon3 = Weapon('Cannon', 100)
 
-#----- Player
-player1 = Player('Hero_01', 1, 100)
-player2 = Player('Archer_01', 2, 120)
-player3 = Player('Wizard_01', 50, 1100)
+armor1 = Armor('Lether Armor', 10)
+armor2 = Armor('Iron Armor', 20)
+armor3 = Armor('Diamond Armor', 50)
 
-#----- Weapon
-weapon1 = Weapon('Iron Sword', 'Melee', 10)
-weapon2 = Weapon('Wooden Bow', 'Range', 8)
-weapon3 = Weapon('Staff', 'Magic', 12)
 
-player1.weapon_owner.append(weapon1.name)
-player1.weapon_owner.append(weapon1.dmg)
-player2.weapon_owner.append(weapon2.name)
-player2.weapon_owner.append(weapon2.dmg)
-player3.weapon_owner.append(weapon3.name)
-player3.weapon_owner.append(weapon3.dmg)
+#main
+player1.equip_weapon(weapon1)
+player1.equip_armor(armor2)
 
-#----- Armor  
-armor1 = Armor('Lether Armor', 5)
-armor2 = Armor('Chain Mail', 10)
-armor3 = Armor('Hood', 2)
+player2.equip_weapon(weapon2)
+player2.equip_armor(armor1)
 
-player1.armor_owner.append(armor1.name)
-player1.armor_owner.append(armor1.defend)
-player2.armor_owner.append(armor2.name)  
-player2.armor_owner.append(armor2.defend)
-player3.armor_owner.append(armor3.name)  
-player3.armor_owner.append(armor3.defend)
+player3.equip_weapon(weapon3)
+player3.equip_armor(armor2)
 
-#----- Guild
-guild1 = Guild('Newbie Eiei', 'Member')
-guild2 = Guild('Advance Eiei', 'Member')
+guild1 = Guild('test1')
 
-player1.guild_member.append(guild1.name)
-player1.guild_member.append(guild1.position)
-player2.guild_member.append(guild1.name)
-player2.guild_member.append(guild1.position)
-player3.guild_member.append(guild2.name)
-player3.guild_member.append(guild2.position)
 
-player2.guild_member[1] = 'Leader'
-player3.guild_member[1] = 'Leader'
+guild1.join_guild(player1)
+guild1.join_guild(player2)
+guild1.join_guild(player3)
+guild1.show_guild()
 
-#----- Test
-player1.info()
-player2.info()
-player3.info()
